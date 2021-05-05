@@ -1,0 +1,325 @@
+@import url(font/iconfont.css);
+.MusicPlayer{
+    width: 500px;
+    height: 500px;
+    border-radius: 30px;
+    background-color: #c1d2d8;
+    box-shadow: 0 0 10px #4a6474;
+    margin: 50px auto;
+    position: relative;
+}
+#myAudio{
+    display: none;
+}
+/* CD style*/
+.CD,.CD-circle1,.CD-circle2,.CD-circle3{
+    border-radius: 50%;
+    position: absolute;
+}
+.CD{
+    width: 250px;
+    height: 250px;
+    background: url(../src/poster/Adele.png) center/cover;
+    box-shadow: 0 0 10px #4a6474;
+    top: 40px;
+    left: 44px;
+    animation: CD-rotate 2s linear infinite;
+    animation-play-state: paused;
+    transform-origin: center;
+}
+.CD-circle1{
+    width: 224px;
+    height: 224px;
+    border: 1px solid white;
+    top: 12.5px;
+    left: 12.5px;
+    background-color: transparent;
+}
+.CD-circle2{
+    width: 69px;
+    height: 69px;
+    border: 3px solid rgba(255,255,255,0.6);
+    top: 87.5px;
+    left: 87.5px;
+    background-color: transparent;
+}
+.CD-circle3{
+    width: 50px;
+    height: 50px;
+    top: 100px;
+    left: 100px;
+    background-color: white;
+}
+@keyframes CD-rotate{
+    from {transform: rotate(0);}
+    to   {transform: rotate(360deg);}
+}
+/* CD pointer style */
+.pointer-base{
+    width: 28px;
+    height: 35px;
+    background-color: #f6f4f2;
+    border-radius: 3px;
+    position: absolute;
+    top: 30px;
+    left: 306px;
+}
+.pointer{
+    width: 58px;
+    height: 221px;
+    background: url(../src/pointer.png);
+    position: absolute;
+    top: 54px;
+    left: 270px;
+    transform-origin: top right;
+    transform: rotate(0);
+}
+.pointer-on{
+    transform: rotate(20deg);
+}
+.transition{
+    transition: all 1s ease;
+}
+/* volume style */
+.Volume{
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    width: 20px;
+    height: 260px;
+}
+.Volume i{
+    font-size: 20px;
+}
+.voice,.mute{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: #f6f4f2;
+}
+.voice{
+    top: 0;
+    left: 0;
+}
+.mute{
+    bottom: 0;
+    left: 0;
+}
+.voice-bar{
+    width: 198px;
+    height: 5px;
+    border: 1px solid #f6ede2;
+    border-radius: 2.5px;
+    transform: rotate(-90deg);
+    position: absolute;
+    top: 125.5px;
+    left: -92px;
+    -webkit-appearance: none;
+    background: linear-gradient(to right, #f6ede2 50%, #c1d2d8 50%);
+    outline: none;
+    padding: 0;
+}
+/* input range in Chrome, Opera, Microsoft Edge */
+.voice-bar::-webkit-slider-runnable-track{
+    height: 5px;
+    border-radius: 2.5px;
+}
+.voice-bar::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    /* background: white; */
+    background-color: #bacd94;
+    border-radius: 50%;
+    border: none;
+    margin-top: -2.5px;
+}
+/* input range in firefox */
+.voice-bar::-moz-range-track{
+    height: 5px;
+    border-radius: 2.5px;
+}
+.voice-bar::-moz-range-thumb{
+    width: 10px;
+    height: 10px;
+    /* background: white; */
+    background-color: #bacd94;
+    border-radius: 50%;
+    border: none;
+    margin-top: -2.5px;
+}
+/* input range in IE */
+.voice-bar::-ms-track{
+    height: 5px;
+    border-radius: 2.5px;
+    background: transparent;
+    /* border: 1px solid #f6ede2; */
+    border: 1px solid #f6ede2;
+    color: transparent;
+}
+.voice-bar::-ms-thumb{
+    width: 5px;
+    height: 5px;
+    /* background: white; */
+    background-color: #bacd94;
+    border-radius: 50%;
+    border: none;
+}
+.voice-bar::-ms-fill-lower{
+    background-color: #f6ede2;
+}
+.voice-bar::-ms-fill-upper{
+    background-color: #c1d2d8;
+}
+.voice-bar::-ms-tooltip{
+    display: none;
+}
+/* loop style */
+.loop{
+    width: 37.5px;
+    height: 37.5px;
+    text-align: center;
+    line-height: 37.5px;
+    border-radius: 5px;
+    color: #f6f4f2;
+    position: absolute;
+    top: 280px;
+    left: 350px;
+    cursor: pointer;
+}
+.loop i{
+    font-size: 30px;
+}
+.song-info{
+    width: 250px;
+    position: absolute;
+    top: 300px;
+    left: 44px;
+}
+.song-name,.singer{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-family: "Arial,Microsoft YaHei UI, ";
+    color: #4a6474;
+    margin: 0;
+}
+.song-name{
+    font-weight: bold;
+}
+/* audio currentTime and duration style */
+.time{
+    width: 412px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 16px;
+    position: absolute;
+    bottom: 130px;
+    left: 44px;
+    color: #f6ede2;
+}
+.currTime{
+    float: left;
+}
+.duration{
+    float: right;
+}
+/* progress style */
+.progress{
+    width: 412px;
+    height: 20px;
+    position: absolute;
+    bottom: 110px;
+    left: 44px;
+    cursor: pointer;
+}
+.progress-bar,.progress-load,.progress-fill{
+    position: absolute;
+    left: 0;
+    top: 5px;
+    border-radius: 5px;
+}
+.progress-bar{
+    width: 410px;
+    height: 8px;
+    border: 1px solid #f6ede2;
+    background-color: transparent;   
+}
+.progress-load{
+    width: 0;
+    height: 10px;
+    background-color: rgba(246, 237, 226, 0.5);
+}
+.progress-fill{
+    width: 0;
+    height: 10px;
+    background-color: #f6ede2;
+}
+.progress-thumb{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: -10px;
+    /* background-color: #f6f4f2; */
+    background-color: #bacd94;
+}
+/* last song, play, next song button style */
+.play-bar{
+    width: 220px;
+    height: 50px;
+    position: absolute;
+    bottom: 45px;
+    left: 140px;
+}
+.prev,.next{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.prev i,.next i{
+    font-size: 30px;
+    color: #f6f4f2;
+}
+.prev,.play{
+    float: left;
+}
+.next{
+    float: right;
+    transform: rotate(180deg);
+}
+.play{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 55px;
+    background: url(../src/play.png) center/cover;
+    cursor: pointer;
+}
+/* message of first and last song */
+.first-message,.last-message{
+    position: absolute;
+    bottom: 64px;
+    height: 12px;
+    line-height: 12px;
+    font-size: 12px;
+    color: #4c6676;
+    margin: 0;
+    display: none;
+}
+.first-message{
+    left: 28px;
+}
+.last-message{
+    right: 28px;
+}
