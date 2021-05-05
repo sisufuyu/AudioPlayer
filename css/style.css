@@ -78,7 +78,7 @@
     transform: rotate(20deg);
 }
 .transition{
-    transition: all 1s ease;
+    transition: all 0.5s linear;
 }
 /* volume style */
 .Volume{
