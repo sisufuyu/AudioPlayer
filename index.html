@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="MusicPlayer">
+        <audio id="myAudio" preload="auto"></audio>
+        <div class="CD">
+            <div class="CD-circle1"></div>
+            <div class="CD-circle2"></div>
+            <div class="CD-circle3"></div>
+        </div>
+        <div class="pointer-container">
+            <div class="pointer-base"></div>
+            <div class="pointer transition"></div>
+        </div>
+        <div class="Volume">
+            <div class="voice"><i class="iconfont icon-shengyin"></i></div>
+            <input type="range" min="0" max="100" value="50" class="voice-bar">
+            <div class="mute"><i class="iconfont icon-jingyin"></i></div>
+        </div>
+        <div class="loop"><i class="iconfont icon-xunhuanbofang"></i></div>
+        <div class="song-info">
+            <p class="song-name">Don't You Remember</p>
+            <p class="singer">Adele</p>
+        </div>
+        <div class="time">
+            <div class="currTime">0:00</div>
+            <div class="duration">0:00</div>
+        </div>
+        <div class="progress">
+            <div class="progress-bar"></div>
+            <div class="progress-load"></div>
+            <div class="progress-fill"></div>
+            <div class="progress-thumb"></div>
+        </div>
+        <div class="play-bar">
+            <div class="prev"><i class="iconfont icon-shangyige"></i></div>
+            <div class="play"></div>
+            <div class="next"><i class="iconfont icon-shangyige"></i></div>
+        </div>
+        <div class="message">
+            <p class="first-message">Already first song!</p>
+            <p class="last-message">Already last song!</p>
+        </div>
+    </div>
+    <script type="text/javascript" src="../jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
