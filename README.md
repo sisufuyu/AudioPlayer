@@ -10,7 +10,9 @@ AudioPlayer is a self-defined audio player. I do all the UI design by myself. Su
 
 ## AudioPlayer appearance and functions 
 You can check this audio player through https://sisufuyu.github.io/AudioPlayer/. There are eight songs inside this audio player now.
-![播放器](https://user-images.githubusercontent.com/20355911/117214436-7c651180-ae05-11eb-99ef-71e32de08bf4.PNG)
 
 This audio player can play and pause music, go to next and previous music, loop play music and change volume. It can also jump to anytime in the music by click or drag the progress bar.
+
+![播放器](https://user-images.githubusercontent.com/20355911/117214888-12993780-ae06-11eb-9839-ba952a4f2b37.PNG)
+
 
