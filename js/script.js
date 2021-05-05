@@ -94,21 +94,19 @@
         var self = this;
         if(flag){
             //console.log("run animation");
-            this.PlayNode.css({"background-image":"url(src/pause.png)"});
             this.pointer.addClass("pointer-on");
             setTimeout(function(){
                 self.cdNode.css("animation-play-state","running");
                 self.animation = true;
                 self.player.trigger("animation-on");
-            },1000);
+            },500);
         }else{
             //console.log("stop animation");
-            this.PlayNode.css({"background-image":"url(src/play.png)"});
             this.pointer.removeClass("pointer-on");
             setTimeout(function(){
                 self.cdNode.css("animation-play-state","paused");
                 self.animation = false;
-            },1000);
+            },500);
         }
     }
     AudioPlayer.prototype._changeTime = function(time){
@@ -190,8 +188,8 @@
                 self._setAnimation(false);
             }else{
                 self._setAnimation(true);
-            }
-            return false;
+            } 
+            return false;   
         });
         this.myAudio.on("progress",$.proxy(self._bufferHandler,self))
         .on("timeupdate",function(){
@@ -248,7 +246,7 @@
     AudioPlayer.prototype._updateProgress = function(event){
         this.audioNode.pause();
         this.playing = false;
-        var left = event.clientX - this.progress.offset().left;;
+        var left = event.clientX - this.progress.offset().left;
         left = left < 0 ? 0 :left;
         left = left > this.progressWidth ? this.progressWidth : left;
         // this.progressFill.width(left);
