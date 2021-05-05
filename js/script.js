@@ -190,7 +190,8 @@
                 self._setAnimation(false);
             }else{
                 self._setAnimation(true);
-            }    
+            }
+            return false;
         });
         this.myAudio.on("progress",$.proxy(self._bufferHandler,self))
         .on("timeupdate",function(){
@@ -259,7 +260,7 @@
                 var start = seekable.start(i);
                 var end = seekable.end(i);
                 //console.log("seek start: "+ start +", seek end: "+ end);
-                if(seekTime>start && seekTime <end){
+                if(seekTime >= start && seekTime <= end){
                     this.audioNode.currentTime = seekTime;
                     break;
                 }
