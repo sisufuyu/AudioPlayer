@@ -251,11 +251,20 @@
         var left = event.clientX - this.progressOffset;
         left = left < 0 ? 0 :left;
         left = left > this.progressWidth ? this.progressWidth : left;
-        this.progressFill.width(left);
-        this.progressThumb.css("left",left);
+        // this.progressFill.width(left);
+        // this.progressThumb.css("left",left);
         if(this.audioNode.duration){
             var seekTime = left*this.audioNode.duration/this.progressWidth;
-            this.audioNode.currentTime = seekTime;
+            var seekable = this.audioNode.seekable;
+            for (var i =0; i< seekable.length; i++){
+                var start = seekable.start(i);
+                var end = seekable.end(i);
+                //console.log("seek start: "+ start +", seek end: "+ end);
+                if(seekTime>start && seekTime <end){
+                    this.audioNode.currentTime = seekTime;
+                    break;
+                }
+            }
         }
     }
     AudioPlayer.prototype.ChangeProgress = function(){
