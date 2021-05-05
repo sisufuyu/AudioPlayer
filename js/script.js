@@ -17,7 +17,6 @@
         this.progressFill = this.progress.find(".progress-fill");
         this.progressThumb = this.progress.find(".progress-thumb");
         this.progressWidth = this.progress.width();
-        this.progressOffset = this.progress.offset().left;
         this.prev = this.player.find(".prev");
         this.next = this.player.find(".next");
         this.firstMesg = this.player.find(".first-message");
@@ -248,7 +247,7 @@
     AudioPlayer.prototype._updateProgress = function(event){
         this.audioNode.pause();
         this.playing = false;
-        var left = event.clientX - this.progressOffset;
+        var left = event.clientX - this.progress.offset().left;;
         left = left < 0 ? 0 :left;
         left = left > this.progressWidth ? this.progressWidth : left;
         // this.progressFill.width(left);
