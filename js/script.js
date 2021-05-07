@@ -197,11 +197,12 @@
             self.progressFill.width(self.audioNode.currentTime*self.progressWidth/self.audioNode.duration);
             self.progressThumb.css("left",self.progressFill.width());
         }).on("ended",function(){
-            self.audioNode.pause();
-            self.playing = false;
-            self._setAnimation(false);
             if(! (self.audioNode.loop || self.currIndex === self.musicList.length-1)){
                 self._switchAudio(self.currIndex+1);
+            }else if(self.currIndex === self.musicList.length-1){
+                self.audioNode.pause();
+                self.playing = false;
+                self._setAnimation(false);
             }
         }).on("pause",function(){
             self.playing = false;
