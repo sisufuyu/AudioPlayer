@@ -9,6 +9,7 @@
         this.loopBtn = this.player.find(".loop");
         this.song = this.player.find(".song-name");
         this.singer = this.player.find(".singer");
+        this.volumeNode = this.player.find(".Volume");
         this.VolumeBar = this.player.find(".voice-bar");
         this.currTime = this.player.find(".currTime");
         this.durationNode = this.player.find(".duration");
@@ -236,12 +237,26 @@
         })
     }
     //change audio volume
+    AudioPlayer.prototype._setVolume = function(vol){
+        if(typeof vol === "undefined"){
+            vol = parseInt(this.VolumeBar.val());
+        }else{
+            this.VolumeBar.val(vol);
+        }
+        this.audioNode.volume = vol/100;
+        this.VolumeBar.css("background", "linear-gradient(to right, #f6ede2 " + vol + "%, #c1d2d8 " + vol + "%)");
+    }
     AudioPlayer.prototype.Volume = function(){
         var self = this;
         this.VolumeBar.on("input range",function(){
-            var vol = parseInt($(this).val());
-            self.audioNode.volume = vol/100;
-            $(this).css("background", "linear-gradient(to right, #f6ede2 " + vol + "%, #c1d2d8 " + vol + "%)");
+            self._setVolume();
+        })
+        this.volumeNode.on("click", "div", function(){
+            if($(this).hasClass("voice")){
+                self._setVolume(100);
+            }else if($(this).hasClass("mute")){
+                self._setVolume(0);
+            }
         })
     }
     //click or drag progress bar to update audio current play time 
